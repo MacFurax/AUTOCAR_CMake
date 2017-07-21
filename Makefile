@@ -111,6 +111,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named mcastEchoServer
+
+# Build rule for target.
+mcastEchoServer: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 mcastEchoServer
+.PHONY : mcastEchoServer
+
+# fast build rule for target.
+mcastEchoServer/fast:
+	$(MAKE) -f CMakeFiles/mcastEchoServer.dir/build.make CMakeFiles/mcastEchoServer.dir/build
+.PHONY : mcastEchoServer/fast
+
+#=============================================================================
 # Target rules for targets named mcastSend
 
 # Build rule for target.
@@ -122,6 +135,33 @@ mcastSend: cmake_check_build_system
 mcastSend/fast:
 	$(MAKE) -f CMakeFiles/mcastSend.dir/build.make CMakeFiles/mcastSend.dir/build
 .PHONY : mcastSend/fast
+
+src/mcastEchoServer.o: src/mcastEchoServer.cpp.o
+
+.PHONY : src/mcastEchoServer.o
+
+# target to build an object file
+src/mcastEchoServer.cpp.o:
+	$(MAKE) -f CMakeFiles/mcastEchoServer.dir/build.make CMakeFiles/mcastEchoServer.dir/src/mcastEchoServer.cpp.o
+.PHONY : src/mcastEchoServer.cpp.o
+
+src/mcastEchoServer.i: src/mcastEchoServer.cpp.i
+
+.PHONY : src/mcastEchoServer.i
+
+# target to preprocess a source file
+src/mcastEchoServer.cpp.i:
+	$(MAKE) -f CMakeFiles/mcastEchoServer.dir/build.make CMakeFiles/mcastEchoServer.dir/src/mcastEchoServer.cpp.i
+.PHONY : src/mcastEchoServer.cpp.i
+
+src/mcastEchoServer.s: src/mcastEchoServer.cpp.s
+
+.PHONY : src/mcastEchoServer.s
+
+# target to generate assembly for a file
+src/mcastEchoServer.cpp.s:
+	$(MAKE) -f CMakeFiles/mcastEchoServer.dir/build.make CMakeFiles/mcastEchoServer.dir/src/mcastEchoServer.cpp.s
+.PHONY : src/mcastEchoServer.cpp.s
 
 src/mcastSend.o: src/mcastSend.cpp.o
 
@@ -158,7 +198,11 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... mcastEchoServer"
 	@echo "... mcastSend"
+	@echo "... src/mcastEchoServer.o"
+	@echo "... src/mcastEchoServer.i"
+	@echo "... src/mcastEchoServer.s"
 	@echo "... src/mcastSend.o"
 	@echo "... src/mcastSend.i"
 	@echo "... src/mcastSend.s"
