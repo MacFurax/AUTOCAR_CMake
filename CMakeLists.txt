@@ -1,0 +1,21 @@
+cmake_minimum_required(VERSION 3.5)
+
+project(AUTOCAR_CMake)
+
+include_directories(/usr/local/include)
+link_directories(/usr/local/lib)
+
+set(EXECUTABLE_OUTPUT_PATH bin)
+
+add_executable( mcastSend src/mcastSend.cpp)
+
+
+
+target_link_libraries(
+
+        mcastSend
+
+        PocoFoundation
+        PocoNet
+
+)
