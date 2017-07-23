@@ -3,6 +3,7 @@
 
 #include "Poco/Timespan.h"
 #include <iostream>
+#include <csignal>
 
 
 using Poco::Net::Socket;
@@ -28,9 +29,11 @@ MulticastEchoServer::MulticastEchoServer():
 
 MulticastEchoServer::~MulticastEchoServer()
 {
+  cout << "~MulticastEchoServer\n";
 	_stop = true;
 	_thread.join();
 	_socket.leaveGroup(_group.host(), _if);
+  _socket.close();
 }
 
 
@@ -97,6 +100,16 @@ Poco::Net::NetworkInterface MulticastEchoServer::findInterface()
 	}
 	return NetworkInterface();
 }
+
+//namespace
+//{
+//  volatile std::sig_atomic_t gSignalStatus;
+//}
+//
+//void signal_handler(int signal)
+//{
+//  gSignalStatus = signal;
+//}
 
 
 int main()
