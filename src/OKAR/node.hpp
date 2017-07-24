@@ -18,7 +18,7 @@
 using namespace std;
 using namespace Poco::Net;
 
-namespace OKAR
+namespace OKAR_XX
 {
 
 class Node 
